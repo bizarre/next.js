@@ -575,7 +575,7 @@ function getCssInlinedLinkTags(
     // entrypoint.
     if (serverCSSForEntries.includes(css) || !/\.module\.css/.test(css)) {
       const mod = serverComponentManifest[css]
-      if (mod) {
+      if (mod && mod.default) {
         for (const chunk of mod.default.chunks) {
           chunks.add(chunk)
         }
